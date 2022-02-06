@@ -46,14 +46,14 @@ public class MergeVerts
         List<Vector3> newVertices = ReregisterVertices(mesh);
         List<int> newIndices = RecalculateIndices(newVertices, mesh);
 
-        Mesh mergedIcosahedron = new Mesh();
-        mergedIcosahedron.vertices = newVertices.ToArray();
-        mergedIcosahedron.triangles = newIndices.ToArray();
+        Mesh vertsMergedMesh = new Mesh();
+        vertsMergedMesh.vertices = newVertices.ToArray();
+        vertsMergedMesh.triangles = newIndices.ToArray();
 
-        mergedIcosahedron.RecalculateNormals();
-        mergedIcosahedron.RecalculateBounds();
+        vertsMergedMesh.RecalculateNormals();
+        vertsMergedMesh.RecalculateBounds();
 
-        return mergedIcosahedron;
+        return vertsMergedMesh;
     }
 
     static int FindClone(Vector3 vertex, List<Vector3> vertices)
